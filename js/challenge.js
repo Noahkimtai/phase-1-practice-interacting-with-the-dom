@@ -35,6 +35,14 @@ clearInterval(createInterval)
 
 // select the comment form 
 let commentForm = document.querySelector('#comment-form')
-console.log(commentForm)
-commentForm.addEventListener('submit', e =>{console.log('clicky')})
+commentForm.addEventListener('submit', e =>{console.log('clicky')
+e.preventDefault()
+console.log(document.querySelector('#submit-input'))
+addComment(document.querySelector('#submit-input'))
+})
 
+function addComment(comment){
+    let li = document.createElement('li')
+    li.innerText = comment.innerText
+    document.querySelector('#users-comment').appendChild(li)
+}
